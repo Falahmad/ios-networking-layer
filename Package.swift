@@ -29,7 +29,6 @@ let package = Package(
                 .linkedFramework("AdSupport"),
                 .linkedFramework("Combine"),
                 .linkedFramework("Security"),
-                .linkedFramework("CommonCrypto"),
                 .linkedFramework("CryptoKit"),
                 .linkedFramework("CoreData"),
             ]
