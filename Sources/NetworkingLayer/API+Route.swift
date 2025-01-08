@@ -48,7 +48,7 @@ final public class APIRoute: NSObject, @unchecked Sendable, APIConfigurationProt
     var operations: [Operation] = [Operation]()
     var anyCancellable = Set<AnyCancellable>()
     
-    init(
+    public init(
         appURL: String?,
         APIURL: String?,
         APINestURL: String?,
