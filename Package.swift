@@ -23,7 +23,10 @@ let package = Package(
         .target(
             name: "NetworkingLayer",
             dependencies: [
-                .product(name: "Reachability", package: "Reachability.swift")
+                .product(name: "Reachability", package: "Reachability.swift"),
+                .product(name: "Apollo", package: "apollo-ios"),
+                .product(name: "ApolloWebSocket", package: "apollo-ios"),
+                .product(name: "ApolloAPI", package: "apollo-ios")
             ],
             linkerSettings: [
                 .linkedFramework("UIKit"),
@@ -31,10 +34,7 @@ let package = Package(
                 .linkedFramework("Combine"),
                 .linkedFramework("Security"),
                 .linkedFramework("CryptoKit"),
-                .linkedFramework("CoreData"),
-                .linkedLibrary("Apollo"),
-                .linkedLibrary("ApolloWebSocket"),
-                .linkedLibrary("ApolloAPI")
+                .linkedFramework("CoreData")
             ]
         ),
         .testTarget(

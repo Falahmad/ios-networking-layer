@@ -25,7 +25,7 @@ final class APIGraphQl: Sendable {
     func apolloClient() -> ApolloClient? {
         let store = ApolloStore()
         
-        let webSocketClient = WebSocket(url: apiUrl, protocol: .graphql_transport_ws)
+        let webSocketClient = WebSocket(url: apiUrl, protocol: .graphql_ws)
         let webSocketTransport = WebSocketTransport(
             websocket: webSocketClient,
             config: .init(
