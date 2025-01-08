@@ -76,29 +76,29 @@ public protocol APIRequests: Sendable {
 
 extension APIRequests {
     
-    var domain: String? { nil }
+    public var domain: String? { nil }
     
-    var APIToken: String? { nil }
+    public var APIToken: String? { nil }
     
-    var userToken: String? { nil }
+    public var userToken: String? { nil }
     
-    var contentType: ContentType { .json }
+    public var contentType: ContentType { .json }
     
-    var additionalData: Any? { nil }
+    public var additionalData: Any? { nil }
     
-    func getParameters() -> [String : Any] { [:] }
+    public func getParameters() -> [String : Any] { [:] }
     
-    func getOptionalParameters() -> [String : Any?] { [:] }
+    public func getOptionalParameters() -> [String : Any?] { [:] }
     
-    func getEncodedParamters() -> Encodable? { nil }
+    public func getEncodedParamters() -> Encodable? { nil }
     
-    func getBulkParameters() -> [[String : Any]] { [[:]] }
+    public func getBulkParameters() -> [[String : Any]] { [[:]] }
     
-    func getQueryItems() -> [URLQueryItem] { [] }
+    public func getQueryItems() -> [URLQueryItem] { [] }
     
-    func getHeaders() -> [HeaderField] { [] }
+    public func getHeaders() -> [HeaderField] { [] }
     
-    func generatedPath() -> String {
+    public func generatedPath() -> String {
         let filteredDomainModelingPath: String = domainModeling.path.replacingOccurrences(of: "/", with: "").trimmingCharacters(in: .whitespacesAndNewlines)
         
         var path: String = "/" + filteredDomainModelingPath
@@ -118,5 +118,5 @@ extension APIRequests {
         return path
     }
     
-    func sessionConfigAdditionalHeaders() -> [AnyHashable : Any] { return [:] }
+    public func sessionConfigAdditionalHeaders() -> [AnyHashable : Any] { return [:] }
 }
