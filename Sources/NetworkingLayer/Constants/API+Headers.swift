@@ -59,7 +59,7 @@ public enum ContentType: Sendable {
     case multiPartForm
     case form
     
-    func getType(_ boundary: String? = nil) -> String {
+    public func getType(_ boundary: String? = nil) -> String {
         switch self {
         case .json:
             return "application/json"
@@ -81,14 +81,16 @@ public enum AuthorizationTypes: String, Sendable {
 
 
 public struct FileRequest: Sendable {
-    let fileData: Data
-    let mimeType: String?
-    let url: URL?
-    var string: String?
     
-    let forceToUseStringInForm: Bool
     
-    init(
+    public let fileData: Data
+    public let mimeType: String?
+    public let url: URL?
+    public var string: String?
+    
+    public let forceToUseStringInForm: Bool
+    
+    public init(
         fileData: Data,
         url: URL? = nil,
         string: String? = nil,
