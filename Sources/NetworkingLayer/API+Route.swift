@@ -145,8 +145,12 @@ final public class APIRoute: NSObject, @unchecked Sendable, APIConfigurationProt
             default: return nil
             }
         }
-        guard let apiVersion = getApiVersion() else { return }
-        urlComponent.path = apiVersion + APIRequest.generatedPath()
+        var path = ""
+        if let apiVersion = getApiVersion() {
+            path += apiVersion
+        }
+        path += APIRequest.generatedPath()
+        urlComponent.path = path
         let queryItems = APIRequest.getQueryItems()
         if !queryItems.isEmpty {
             urlComponent.queryItems = queryItems
