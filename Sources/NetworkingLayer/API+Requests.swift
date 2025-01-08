@@ -84,6 +84,8 @@ extension APIRequests {
     
     public var contentType: ContentType { .json }
     
+    public var apiVersion: APIVersion? { nil }
+    
     public var additionalData: Any? { nil }
     
     public func getParameters() -> [String : Any] { [:] }
