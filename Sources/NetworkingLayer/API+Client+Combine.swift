@@ -11,7 +11,7 @@ import Combine
 
 extension APIRoute {
     
-    func combineRequest<Response>(
+    public func combineRequest<Response>(
         request: APIRequests,
         _ response: Response.Type
     ) -> Future<Response, APIError> where Response: APIResponseProtocol {
@@ -151,7 +151,7 @@ extension APIRoute {
         }
     }
     
-    func customCombineRequest<Response>(
+    public func customCombineRequest<Response>(
         request: APIRequests,
         _ response: Response.Type,
         customRequestType: CustomRequestType? = nil
@@ -275,7 +275,7 @@ extension APIRoute {
         }
     }
     
-    func jsonCombineRequest(request: APIRequests) -> Future<Data, APIError> {
+    public func jsonCombineRequest(request: APIRequests) -> Future<Data, APIError> {
         return Future<Data, APIError> { promise in
             #if !AppClip && !OrderWidget && !NotificationService
             guard APIReachability.isConnectedToNetwork() else {
