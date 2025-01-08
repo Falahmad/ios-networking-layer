@@ -17,6 +17,7 @@ let package = Package(
     ],
     dependencies: [
         .package(url: "https://github.com/ashleymills/Reachability.swift", exact: Version(stringLiteral: "5.2.4")),
+        .package(url: "https://github.com/apollographql/apollo-ios.git", exact: Version(stringLiteral: "1.15.3"))
     ],
     targets: [
         .target(
@@ -31,6 +32,9 @@ let package = Package(
                 .linkedFramework("Security"),
                 .linkedFramework("CryptoKit"),
                 .linkedFramework("CoreData"),
+                .linkedLibrary("Apollo"),
+                .linkedLibrary("ApolloWebSocket"),
+                .linkedLibrary("ApolloAPI")
             ]
         ),
         .testTarget(

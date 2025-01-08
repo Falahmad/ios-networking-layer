@@ -7,9 +7,9 @@
 
 import Foundation
 
-public struct RandomDecodableObjc: Decodable { }
-public struct EmptyResponse: Decodable { }
-public struct TokenResponse: Decodable {
+public struct RandomDecodableObjc: Decodable, Sendable { }
+public struct EmptyResponse: Decodable, Sendable { }
+public struct TokenResponse: Decodable, Sendable {
     let token: String
 }
 
@@ -44,6 +44,6 @@ public enum APIResult2<T: Sendable, U: Sendable>: Sendable where T: APIResponseP
     case failure(U)
 }
 
-public enum CustomRequestType {
+public enum CustomRequestType: Sendable {
     case zammad
 }
