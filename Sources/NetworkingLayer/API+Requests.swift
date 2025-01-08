@@ -78,6 +78,12 @@ extension APIRequests {
     
     public var domain: String? { nil }
     
+    public var path: String? { nil }
+    
+    public var fullPathAfterDomainModelingPath: String? { nil }
+    
+    public var objectIdForApi: String? { nil }
+    
     public var APIToken: String? { nil }
     
     public var userToken: String? { nil }
