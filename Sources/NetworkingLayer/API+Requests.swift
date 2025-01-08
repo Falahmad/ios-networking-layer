@@ -26,29 +26,29 @@ public protocol APIRequests: Sendable {
     Domain modeling is the first path after the domain,
      It has to be declared so we can track path error
      */
-    var domainModeling: DomainModeling { get set }
+    var domainModeling: DomainModeling { get }
     
     /**
     declare domain if the intialized api has a custom domain token
      */
-    var domain: String? { get set }
+    var domain: String? { get }
     
     /**
     declare APIToken if the intialized api has a custom api token
      */
-    var APIToken: String? { get set }
+    var APIToken: String? { get }
     
     /**
      The path right after the domain modeling
      */
-    var path: String? { get set }
+    var path: String? { get }
     
     /**
      This is the path after domainModeling and path
      - Note:
      https://example.com/domainModelingPath/Path/fullPathAfterDomainModelingPath
      */
-    var fullPathAfterDomainModelingPath: String? { get set }
+    var fullPathAfterDomainModelingPath: String? { get }
     /**
      This is the object id you performing that API on
      - Note:
@@ -56,12 +56,12 @@ public protocol APIRequests: Sendable {
      https://example.com/domainModelingPath/Path/objectIdForApi
      https://example.com/domainModelingPath/Path/fullPathAfterDomainModelingPath/objectIdForApi
      */
-    var objectIdForApi: Int? { get set }
-    var method: HTTPMethods { get set }
-    var apiVersion: APIVersion? { get set }
-    var userToken: String? { get set }
-    var contentType: ContentType { get set }
-    var additionalData: [String: AdditionalDataValue]? { get set }
+    var objectIdForApi: Int? { get }
+    var method: HTTPMethods { get }
+    var apiVersion: APIVersion? { get }
+    var userToken: String? { get }
+    var contentType: ContentType { get }
+    var additionalData: [String: AdditionalDataValue]? { get }
     
     func getParameters() -> [String : Any]
     func getOptionalParameters() -> [String : Any?]
