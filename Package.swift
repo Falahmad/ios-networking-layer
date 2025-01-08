@@ -16,7 +16,7 @@ let package = Package(
             targets: ["NetworkingLayer"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/ashleymills/Reachability.swift", branch: "master")
+        .package(url: "https://github.com/ashleymills/Reachability.swift", exact: Version(stringLiteral: "5.2.4")),
     ],
     targets: [
         .target(
