@@ -8,7 +8,7 @@
 
 import Foundation
 
-public enum HTTPMethods:String {
+public enum HTTPMethods: String, Sendable {
     case options = "OPTIONS"
     case get     = "GET"
     case head    = "HEAD"
@@ -20,7 +20,7 @@ public enum HTTPMethods:String {
     case connect = "CONNECT"
 }
 
-public enum HTTPHeaderField: String {
+public enum HTTPHeaderField: String, Sendable {
     case authentication = "Authorization"
     case pusherAuth = "authorizer"
     case contentType = "Content-Type"
@@ -54,12 +54,12 @@ public enum HTTPHeaderField: String {
 }
 
 
-public enum ContentType {
+public enum ContentType: Sendable {
     case json
     case multiPartForm
     case form
     
-    func getType(_ boundary: String? = nil) ->String {
+    func getType(_ boundary: String? = nil) -> String {
         switch self {
         case .json:
             return "application/json"
@@ -75,12 +75,12 @@ public enum ContentType {
     }
 }
 
-public enum AuthorizationTypes:String {
+public enum AuthorizationTypes: String, Sendable {
     case bearer = "Bearer "
 }
 
 
-public struct FileRequest {
+public struct FileRequest: Sendable {
     let fileData: Data
     let mimeType: String?
     let url: URL?
