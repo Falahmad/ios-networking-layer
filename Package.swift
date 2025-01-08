@@ -5,20 +5,39 @@ import PackageDescription
 
 let package = Package(
     name: "NetworkingLayer",
+    defaultLocalization: "en",
+    platforms: [
+        .iOS(.v14)
+    ],
     products: [
         // Products define the executables and libraries a package produces, making them visible to other packages.
         .library(
             name: "NetworkingLayer",
             targets: ["NetworkingLayer"]),
     ],
+    dependencies: [
+        .package(url: "https://github.com/ashleymills/Reachability.swift", branch: "master")
+    ],
     targets: [
-        // Targets are the basic building blocks of a package, defining a module or a test suite.
-        // Targets can depend on other targets in this package and products from dependencies.
         .target(
-            name: "NetworkingLayer"),
+            name: "NetworkingLayer",
+            dependencies: [
+                .product(name: "Reachability", package: "Reachability.swift")
+            ],
+            linkerSettings: [
+                .linkedFramework("UIKit"),
+                .linkedFramework("AdSupport"),
+                .linkedFramework("Combine"),
+                .linkedFramework("Security"),
+                .linkedFramework("CommonCrypto"),
+                .linkedFramework("CryptoKit"),
+                .linkedFramework("CoreData"),
+            ]
+        ),
         .testTarget(
             name: "NetworkingLayerTests",
             dependencies: ["NetworkingLayer"]
         ),
-    ]
+    ],
+    swiftLanguageModes: [.v6]
 )
