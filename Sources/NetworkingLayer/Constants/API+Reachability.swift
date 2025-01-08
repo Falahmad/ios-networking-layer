@@ -8,12 +8,12 @@
 import SystemConfiguration
 import Reachability
 
-protocol ReachabilityActionDelegate {
+public protocol ReachabilityActionDelegate {
     func reachabilityChanged(_ isReachable: Bool)
 }
 
 // MARK: - ReachabilityActionDelegate
-protocol ReachabilityObserverDelegate: AnyObject, ReachabilityActionDelegate {
+public protocol ReachabilityObserverDelegate: AnyObject, ReachabilityActionDelegate {
     func addReachabilityObserver() throws
     
     func removeReachabilityObserver()
