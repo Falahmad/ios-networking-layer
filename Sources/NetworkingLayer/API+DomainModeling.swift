@@ -12,4 +12,9 @@ import SwiftUI
 public struct DomainModeling {
     let domainCode: Int
     let path: String
+    
+    public init(domainCode: Int, path: String) {
+        self.domainCode = domainCode
+        self.path = path
+    }
 }
