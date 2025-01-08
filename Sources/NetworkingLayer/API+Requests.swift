@@ -82,7 +82,7 @@ extension APIRequests {
     
     public var fullPathAfterDomainModelingPath: String? { nil }
     
-    public var objectIdForApi: String? { nil }
+    public var objectIdForApi: Int? { nil }
     
     public var APIToken: String? { nil }
     
@@ -92,7 +92,7 @@ extension APIRequests {
     
     public var apiVersion: APIVersion? { nil }
     
-    public var additionalData: Any? { nil }
+    public var additionalData: [String: AdditionalDataValue]? { nil }
     
     public func getParameters() -> [String : Any] { [:] }
     
