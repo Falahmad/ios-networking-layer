@@ -9,7 +9,7 @@
 import Foundation
 import SwiftUI
 
-public struct DomainModeling {
+public struct DomainModeling: Sendable {
     let domainCode: Int
     let path: String
     
