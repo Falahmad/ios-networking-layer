@@ -103,7 +103,9 @@ final public class APIRoute: NSObject, @unchecked Sendable, APIConfigurationProt
                         return URLComponents(string: APINestURL)
                     }
                 default:
-                    return nil
+                    if let APIURL = self.APIURL {
+                        return URLComponents(string: APIURL)
+                    }
                 }
                 return nil
             }
