@@ -9,17 +9,7 @@
 import Foundation
 import SwiftUI
 
-public enum DomainModeling: Int {
-    case empty = 1
-    
-    
-    var path: String {
-        switch self {
-        case .empty: return ""
-        
-        }
-    }
-    var domainCode: Int {
-        rawValue
-    }
+public struct DomainModeling {
+    let domainCode: Int
+    let path: String
 }

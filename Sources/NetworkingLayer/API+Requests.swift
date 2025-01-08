@@ -23,7 +23,7 @@ public protocol APIRequests: Sendable {
     typealias HeaderField = (value: String, header: String)
     
     /**
-    Domain modeling is the first first after the domain,
+    Domain modeling is the first path after the domain,
      It has to be declared so we can track path error
      */
     var domainModeling: DomainModeling { get }
