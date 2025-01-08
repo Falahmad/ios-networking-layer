@@ -15,6 +15,8 @@ import CryptoKit
 
 final public class APIRoute: NSObject, @unchecked Sendable, APIConfigurationProtocol {
     
+    public static let shared: APIRoute = .init()
+    
     struct FBAPIPublicKey: Codable {
         static let key = "api_public_key"
         
@@ -48,7 +50,11 @@ final public class APIRoute: NSObject, @unchecked Sendable, APIConfigurationProt
     var operations: [Operation] = [Operation]()
     var anyCancellable = Set<AnyCancellable>()
     
-    public init(
+    private override init() {
+        operationQueue = OperationQueue()
+    }
+    
+    public func setup(
         appURL: String?,
         APIURL: String?,
         APINestURL: String?,
@@ -64,10 +70,9 @@ final public class APIRoute: NSObject, @unchecked Sendable, APIConfigurationProt
         self.APIApplicationVersion = APIApplicationVersion
         self.applicationVersionWithBuild = applicationVersionWithBuild
         self.applicationVersion = applicationVersion
-        operationQueue = OperationQueue()
     }
     
-    func setApiPublicKey(_ value: [String]) {
+    public func setApiPublicKey(_ value: [String]) {
         apiPublicKeys = value
     }
     
